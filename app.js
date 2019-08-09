@@ -22,7 +22,13 @@ const generateTable = require("./lib/tables");
  * @return {Number}
  */
 function getPendingBalance(pendingPayments, currentBalance) {
-  return 0;
+  var number = 0;
+  for (var x = 0; x < pendingPayments.length; x++) {
+    var total = number + pendingPayments[x];
+    number = total;
+  }
+  var remainingBalace = currentBalance - number;
+  return remainingBalace;
 }
 
 /**
@@ -37,7 +43,20 @@ function getPendingBalance(pendingPayments, currentBalance) {
  * @return {Number}
  */
 function getTotalExpenditures(clearedPayments, pendingPayments) {
-  return 0;
+  var sumOfClearedPayment = 0;
+  for (var x = 0; x < clearedPayments.length; x++) {
+    console.log(clearedPayments[x]);
+    var totalCleared = sumOfClearedPayment;
+    sumOfClearedPayment = clearedPayments[x] + totalCleared;
+  }
+  var sumOfPendingPayment = 0;
+  for (var y = 0; y < pendingPayments.length; y++) {
+    var totalPending = sumOfPendingPayment;
+    sumOfPendingPayment = pendingPayments[y] + totalPending;
+  }
+  var result = sumOfClearedPayment + sumOfPendingPayment;
+
+  return result;
 }
 
 /**
@@ -54,7 +73,14 @@ function getTotalExpenditures(clearedPayments, pendingPayments) {
  * @return {Number}
  */
 function getRemainingBudget(amountToSave, currentBalance, pendingPayments) {
-  return 0;
+  var sumOfPendingPayment = 0;
+  for (var y = 0; y < pendingPayments.length; y++) {
+    var totalPending = sumOfPendingPayment;
+    sumOfPendingPayment = pendingPayments[y] + totalPending;
+  }
+  var totalDeduction = sumOfPendingPayment + amountToSave;
+  var getRemainingBudget = currentBalance - totalDeduction;
+  return getRemainingBudget;
 }
 
 /**
