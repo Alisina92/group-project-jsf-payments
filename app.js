@@ -45,7 +45,6 @@ function getPendingBalance(pendingPayments, currentBalance) {
 function getTotalExpenditures(clearedPayments, pendingPayments) {
   var sumOfClearedPayment = 0;
   for (var x = 0; x < clearedPayments.length; x++) {
-    console.log(clearedPayments[x]);
     var totalCleared = sumOfClearedPayment;
     sumOfClearedPayment = clearedPayments[x] + totalCleared;
   }
@@ -93,9 +92,21 @@ function getRemainingBudget(amountToSave, currentBalance, pendingPayments) {
  * @return {Number}
  */
 function getLargestExpense(clearedPayments, pendingPayments) {
-  return 0;
+  var largestExpenseCleared = 0;
+  for (var x = 0; x <= largestExpenseCleared; x++) {
+    if (clearedPayments[x] > largestExpenseCleared) {
+      largestExpenseCleared = clearedPayments[x];
+    }
+  }
+  var largestExpensePending = 0;
+  for (var y = 0; y <= largestExpensePending; y++) {
+    if (pendingPayments[y] > largestExpensePending) {
+      largestExpensePending = pendingPayments[y];
+    }
+  }
+  var largestExpenditure = largestExpenseCleared + largestExpensePending;
+  return largestExpenditure;
 }
-
 /**
  * Write a function that calculates the account balance at the start
  * of the month.
@@ -108,7 +119,15 @@ function getLargestExpense(clearedPayments, pendingPayments) {
  * @return {Number}
  */
 function getStartingBalance(clearedPayments, currentBalance) {
-  return 0;
+  var sumOfClearedPayment = 0;
+  for (var x = 0; x < clearedPayments.length; x++) {
+    var total = sumOfClearedPayment + clearedPayments[x];
+    sumOfClearedPayment = total;
+    console.log(sumOfClearedPayment);
+  }
+
+  var startingBalance = sumOfClearedPayment + currentBalance;
+  return startingBalance;
 }
 
 /*

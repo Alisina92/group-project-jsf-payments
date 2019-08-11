@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "scripts": {
-    "precommit": false
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodeYourFuture/group-project-jsf-payments.git"
